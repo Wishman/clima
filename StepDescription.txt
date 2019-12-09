@@ -1,0 +1,10 @@
+Section 13 - Clima - A Modern Weather App
+
+Task: build a weather app that receives a City and queries a webservice API to get the local weather
+
+1. get the location via the phones gps position
+1.1 get geolocator package and add to pubspec.yaml, import it into loading_screen
+1.2 add func getLocation() that gets loc according to geolocator docs and add async to func!
+1.3 change accuracy to "low" (add print to console for testing)
+1.4 add permission request to AndroidManifest.xml for Android (in main folder, not debug or profile) and Info.plist for iOS as per GeoLocator instructions in chapter permissions
+1.5 call method getLocation when user presses on loading_screen button

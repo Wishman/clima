@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <!-- added from geolocator to get permission - step 1.4 -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs access to location when open, baby!</string>
+    <!-- end step 1.4 -->
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
