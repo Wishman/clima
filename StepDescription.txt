@@ -8,3 +8,8 @@ Task: build a weather app that receives a City and queries a webservice API to g
 1.3 change accuracy to "low" (add print to console for testing)
 1.4 add permission request to AndroidManifest.xml for Android (in main folder, not debug or profile) and Info.plist for iOS as per GeoLocator instructions in chapter permissions
 1.5 call method getLocation when user presses on loading_screen button
+
+2. async /await
+2.1 create scratchfile: clima_scratch.dart WITHIN CLima-Flutter project (no new scratch file, just new file)
+2.2 add code from gist to scratch to simulate first sync, then async only with Futures, then with async /await
+
