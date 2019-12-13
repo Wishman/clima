@@ -28,5 +28,17 @@ Task: build a weather app that receives a City and queries a webservice API to g
     4.1(g) even simpler - use ?? check for null
 4.2 provide try/catch for getLocation() - WITHIN getLocation()!!
 
+5.  L-134 - move getLocation() into separate Class
+5.1 create class Location in location.dart & cut&paste import geolocator here
+5.2 add props longitude & latitude
+5.3 add getCurrentLocation & cut&paste try/Catch block from getLocation- needs to return Future<void> to enable getLocation in loading to await as well!!
+5.4 assign latitude & longitude
+5.5 in loading.dart:
+    5.5(a) import location.dart
+    5.5(b) update getLocation to create new Location obj
+    5.5(c) call getCurrentLocation() - needs await to await results!!
+    5.5(d) print values of lat & long - don't forget {}!!
+
+
 
 

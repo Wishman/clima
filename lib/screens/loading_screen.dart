@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart'; // 1.1
+import 'package:clima/services/location.dart'; // 5.5(a)
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -14,15 +14,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
     getLocation();
   }
 
-  // 1.2
   void getLocation() async {
-    // 4.2 - getLocation() might fail, as user denies permission, gps not available, location unknown, etc.
-    try {
-      Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.low); // 1.3
-      print(position);
-    } catch (e) {
-      print(e);
-    }
+    Location loc = Location(); // 5.5(b)
+    await loc.getCurrentLocation(); // 5.5(c)
+    print('longitude: ${loc.longitude}, latitude: ${loc.latitude}');
   }
 
   @override
@@ -37,9 +32,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
     }
     // 4.1 (d)
     catch (e) {
-      print(e);
-      // 4.1 (f) - on error, provide default value
       //myMarginAsDouble = 30.0;  // not needed due to 4.1(g)
+      //print(e);
+      // 4.1 (f) - on error, provide default value
     }
     // 4.1(b) & (e)
     return Scaffold(
