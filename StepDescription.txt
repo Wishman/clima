@@ -2,14 +2,31 @@ Section 13 - Clima - A Modern Weather App
 
 Task: build a weather app that receives a City and queries a webservice API to get the local weather
 
-1. get the location via the phones gps position
+1. L-130 - get the location via the phones gps position
 1.1 get geolocator package and add to pubspec.yaml, import it into loading_screen
 1.2 add func getLocation() that gets loc according to geolocator docs and add async to func!
 1.3 change accuracy to "low" (add print to console for testing)
 1.4 add permission request to AndroidManifest.xml for Android (in main folder, not debug or profile) and Info.plist for iOS as per GeoLocator instructions in chapter permissions
 1.5 call method getLocation when user presses on loading_screen button
 
-2. async /await
+2. L-131 - async /await
 2.1 create scratchfile: clima_scratch.dart WITHIN CLima-Flutter project (no new scratch file, just new file)
 2.2 add code from gist to scratch to simulate first sync, then async only with Futures, then with async /await
+
+3. L-132 - Stateful Widget Lifecycle Methods
+3.1 delete content of the scaffold of loading_screen
+3.2 update Scaffold so Location is printed to console immediately at loading (initState())
+
+4. L-133 - Exception Handling & Null Aware Operators
+4.1 implement a try / catch with margins:
+    4.1(a) add String var to set margin
+    4.1(b) add Scaffold with Container with margin & color
+    4.1(c) add double.parse within try and move Scaffold within try
+    4.1(d) add catch, copy Scaffold and provide default value of 30 for margin; also print error
+    4.1(e) simplyfy
+    4.1(f) if you catch conversion error, provide default for myMarginAsDouble
+    4.1(g) even simpler - use ?? check for null
+4.2 provide try/catch for getLocation() - WITHIN getLocation()!!
+
+
 
