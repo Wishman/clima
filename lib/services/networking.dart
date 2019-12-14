@@ -9,7 +9,7 @@ class NetworkHelper {
   NetworkHelper(this.url);
 
   // 8.6(h)
-  Future<void> getData() async {
+  Future getData() async {
     http.Response response = await http.get(url); // 8.2 & 8.4
 
     if (response.statusCode == 200) {

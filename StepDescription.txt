@@ -65,7 +65,7 @@ Task: build a weather app that receives a City and queries a webservice API to g
     8.6(e) add NetworkHelper obj
     8.6(f) comment out getData and move jsonDecode into getLocationData (also some refactoring with var types
     8.6(g) add weatherData that awaits getData from networkHelper
-    8.6(h) change getData() in networking.dart to return a Future
+    8.6(h) change getData() in networking.dart to return a Future (without <void> !!!)
     8.6(i) return decoded json response
 8.7 move temperature/condition & cityName to location_screen
 
@@ -76,3 +76,18 @@ Task: build a weather app that receives a City and queries a webservice API to g
     9.2(b) import spinkit into loading_screen
     9.2(c) add spinner to build method
 
+10. L-140: Passing Data to a State Object - getting weatherData into
+Pass data through route by adding property to widget:
+10.1 add locationWeather prop to LocationScreen class and ad constr
+10.2 add prop locationweather set to weatherdata to Location screen call in loading_screen
+10.3 add initState() in State class of location screen
+10.4 use locationWeather and get Temp, Constitution (id) and City from it -> new method updateUI
+    10.4(a) add method updateUI to State obj with arg: dynamic weatherData
+    10.4(b) add vars for temp, condition and city (also changed var of temp/cond& city to double, int and String respectively;
+    10.4(c) assign weatherData to new vars & remove jsonDecode (handled in networking.dart)
+    10.4(d) call updateUI with widget.locationWeather in initState()
+10.5 change api call to return metric (temp in celsius and not kelvin)
+10.6 display temp in location_screen Text widget
+10.7 change temperature var to integer to avoid Render Overflow (too many digits)
+10.8 refactor loading_screen:
+    10.8(a) get rid of long/lat vars and replace with loc.longiture & loc.latitude.

@@ -2,11 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 
 class LocationScreen extends StatefulWidget {
+  // 10.1 prop to receive data from loading_screen & constr
+  final locationWeather;
+  LocationScreen({this.locationWeather});
+
   @override
   _LocationScreenState createState() => _LocationScreenState();
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+  // 10.4(b)
+  int temperature; // 10.7 change double to int
+  int condition;
+  String cityName;
+
+  // 10.3
+  @override
+  void initState() {
+    super.initState();
+    //print(widget.locationWeather); // how to get data from parent stateful widget!
+    updateUI(widget.locationWeather); // 10.4(d)
+  }
+
+  // 10.4(a) - use data from locationWeather and extract temp, id & city
+  void updateUI(dynamic weatherData) {
+    // 7.5 & 8.6(f) & 8.7 & 10.4(c)
+    temperature = weatherData['main']['temp'].toInt(); // 10.7 double -> int
+    condition = weatherData['weather'][0]['id'];
+    cityName = weatherData['name'];
+    print('the temperature of $cityName with the id of $condition is: $temperature°C!');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +74,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      '32°',
+                      '$temperature°', // 10.6
                       style: kTempTextStyle,
                     ),
                     Text(
@@ -73,9 +99,3 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
-
-//// 7.5 & 8.6(f) & 8.7
-//var temperature = jsonDecode(data)['main']['temp'];
-//var condition = jsonDecode(data)['weather'][0]['id'];
-//var cityName = jsonDecode(data)['name'];
-//print('the temperature of $cityName with the id of $condition is: $temperature Degrees!');
