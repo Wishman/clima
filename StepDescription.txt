@@ -44,5 +44,12 @@ Task: build a weather app that receives a City and queries a webservice API to g
 6.2 add import http package to loading_screen.dart
 6.3 add getData() to loading_screen
 
+7. L-137: JSON Parsing and Dynamic Types
+7.1 import dart:convert
+7.2 use jsonDecode() to get longitude
+7.3 get to weather data (inside obj)
+7.4 comment out 7.2 & 7.3
+7.5 add temp, condition id, city name
+
 
 
