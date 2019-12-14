@@ -91,3 +91,14 @@ Pass data through route by adding property to widget:
 10.7 change temperature var to integer to avoid Render Overflow (too many digits)
 10.8 refactor loading_screen:
     10.8(a) get rid of long/lat vars and replace with loc.longiture & loc.latitude.
+
+11. L-141: Updating the Weather with the WeatherModel
+weather.dart includes some code to map condition to icon and some temperature comment-text and icons
+11.1 import weather.dart in location-screen
+11.2 init WeatherModel
+11.3 in updateUI -> getWeatherIcon from WeatherModel
+11.4 change condition to a local  updateUI var variable and add String WeatherIcon at top
+11.5 pass result of getWeatherIcon to weatherIcon var
+11.6 add weatherIcon inside Text() widget
+11.7 replace comment Text with getMessage()
+11.8 wrap code within updateUI in setState()
