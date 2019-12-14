@@ -15,8 +15,7 @@ class _LocationScreenState extends State<LocationScreen> {
           image: DecorationImage(
             image: AssetImage('images/location_background.jpg'),
             fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.8), BlendMode.dstATop),
+            colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.8), BlendMode.dstATop),
           ),
         ),
         constraints: BoxConstraints.expand(),
@@ -74,3 +73,9 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
+
+//// 7.5 & 8.6(f) & 8.7
+//var temperature = jsonDecode(data)['main']['temp'];
+//var condition = jsonDecode(data)['weather'][0]['id'];
+//var cityName = jsonDecode(data)['name'];
+//print('the temperature of $cityName with the id of $condition is: $temperature Degrees!');

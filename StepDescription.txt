@@ -51,5 +51,23 @@ Task: build a weather app that receives a City and queries a webservice API to g
 7.4 comment out 7.2 & 7.3
 7.5 add temp, condition id, city name
 
+8. L-138: register with openweathermap.org to get API key
+8.1 add const apiKey
+8.2 replace sample api key with own and change url from samples. to api
+8.3 add lat & log variables (a) and assign to lat&long from getLocation (b)
+8.4 add long and lat to api url
+8.5 move getData() call into getLocation at the end
+8.6 refactor getData() into networking.dart
+    8.6(a) get import http and dart:conversion over
+    8.6(b) create new class NetworkHelper
+    8.6(c) in loading_screen combine getLocation and getData
+    8.6(d) import networking.dart in loading_screen
+    8.6(e) add NetworkHelper obj
+    8.6(f) comment out getData and move jsonDecode into getLocationData (also some refactoring with var types
+    8.6(g) add weatherData that awaits getData from networkHelper
+    8.6(h) change getData() in networking.dart to return a Future
+    8.6(i) return decoded json response
+8.7 move temperature/condition & cityName to location_screen
+
 
 
