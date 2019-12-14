@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart'; // 5.5(a)
 import 'package:clima/services/networking.dart'; //8.6(d)
+import 'location_screen.dart'; // 9.1
+import 'package:flutter_spinkit/flutter_spinkit.dart'; // 9.2(b)
 
 const apiKey = 'b14228a38b603be1687a5109775fed6f'; // 8.1
 
@@ -18,7 +20,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    getLocation();
+    getLocationData();
   }
 
   // async / await needed to make sure data is actually here
@@ -32,6 +34,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     // 8.3(b)
     latitude = loc.latitude;
     longitude = loc.longitude;
+    print('lat:$latitude, long: $longitude');
 
     // 8.6(e)
     NetworkHelper networkHelper = NetworkHelper('https://api.openweathermap.org/data/2'
@@ -40,6 +43,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
     // 8.6(g)
     var weatherData = await networkHelper.getData();
 
+    // 9.1 - setup route to location_screen
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen();
+    }));
     //getData(); //6.3 & 8.5
   }
 
@@ -66,6 +73,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
     */
 
     // 4.1(b) & (e)
-    return Scaffold();
+    return Scaffold(
+      // 9.2(c)
+      body: Center(
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 100,
+        ),
+      ),
+    );
   }
 }

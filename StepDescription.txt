@@ -69,5 +69,10 @@ Task: build a weather app that receives a City and queries a webservice API to g
     8.6(i) return decoded json response
 8.7 move temperature/condition & cityName to location_screen
 
-
+9. L-139: Add Spinner to Loading_Screen
+9.1 Navigator.push() weatherData from Loading to Location Screen
+9.2 add loading indicator to loading screen
+    9.2(a) get flutter Spinkit package
+    9.2(b) import spinkit into loading_screen
+    9.2(c) add spinner to build method
 
