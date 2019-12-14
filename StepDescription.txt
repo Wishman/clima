@@ -39,6 +39,10 @@ Task: build a weather app that receives a City and queries a webservice API to g
     5.5(c) call getCurrentLocation() - needs await to await results!!
     5.5(d) print values of lat & long - don't forget {}!!
 
+6. L-136:  Fetching weather data via OpenWeatherMap API
+6.1 add http package to pubspec.yaml
+6.2 add import http package to loading_screen.dart
+6.3 add getData() to loading_screen
 
 
 
