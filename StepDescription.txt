@@ -102,3 +102,19 @@ weather.dart includes some code to map condition to icon and some temperature co
 11.6 add weatherIcon inside Text() widget
 11.7 replace comment Text with getMessage()
 11.8 wrap code within updateUI in setState()
+
+12. L-142: Refactor Location Methods:
+Trigger new location request by tapping on icon -> need to move getLocationData into weather.dart
+12.1 move imports for loaction.dart and networkign.dart into weather.dart
+12.2 move first part of getLoationData to weather.dart (keep Navigator.push()) into new method: getLocationWeather()
+12.3 move api key over
+12.4 move first part of url call into const openWeatherMapURL and add this var t NetworkHelper call
+12.5 return weatherData from method and change return type to Future<dynamic>
+-- in loading_screen:
+12.6 import weather.dart
+12.7 create new WeatherModel, call getLocationWeather and store in new var weatherData await!
+-- on location_screen:
+12.8 find Arrow Button, add onPressed() logic, needs await therefore onPressed must by async
+12.9 updateUI with weatherdata
+12.10 handle if location service doesn't work in updateUI() (before you handle weather data) + empty return
+
