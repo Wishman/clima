@@ -126,3 +126,12 @@ And also add logic to "City" button to push to city_screen
 13.2 add text field widget (props: decoration: filled, fillColor, icon, hintText, border)
 13.3 move input decoration into constants file for multiple use
 13.4 use onChanged property to get value
+
+14. L-144: Pass Data Backwards through Navigation stack
+14.1 Store data from TextField in new String prop cityName
+14.2 pass cityName back to location_screen when GetWeather button is pressed
+    14.2 (a) in city_screen: add Navigator.pop
+    14.2 (b) in location_screen: add var typedName to Navigator.push to receive - make async!
+14.3 in weather.dart: create new method getCityWeather by CityName typed in the cityScreen
+14.4 in location_screen: check if typedName is not null, then use getCityWeather & updateUI
+14.5 add logic to backbutton in city_screen

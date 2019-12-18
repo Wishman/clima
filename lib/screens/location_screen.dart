@@ -86,10 +86,17 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                   FlatButton(
                     // 13.1(b) add Navigator.push() to push to city_screen
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    onPressed: () async {
+                      // async is for receiving back data only , if one-way data, no need
+                      // 14.2(b) to receive data from city_screen add var typedName
+                      var typedName = await Navigator.push(context, MaterialPageRoute(builder: (context) {
                         return CityScreen();
                       }));
+                      // 14.4 get data from api for city typed in city_screen text field
+                      if (typedName != null) {
+                        var weatherData = await weather.getCityWeather(typedName);
+                        updateUI(weatherData);
+                      }
                     },
                     child: Icon(
                       Icons.location_city,

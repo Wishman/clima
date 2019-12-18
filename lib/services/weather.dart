@@ -6,6 +6,12 @@ const apiKey = 'b14228a38b603be1687a5109775fed6f'; // 8.1 & 12.3
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather'; //12.4
 
 class WeatherModel {
+  // 14.3 use location from City_Screen:
+  Future<dynamic> getCityWeather(String cityName) async {
+    NetworkHelper networkHelper = NetworkHelper('$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric');
+    return await networkHelper.getData();
+  }
+
   // 12.2 & 12.5
   Future<dynamic> getLocationWeather() async {
     Location loc = Location(); // 5.5(b)
