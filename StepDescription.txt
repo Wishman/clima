@@ -105,8 +105,8 @@ weather.dart includes some code to map condition to icon and some temperature co
 
 12. L-142: Refactor Location Methods:
 Trigger new location request by tapping on icon -> need to move getLocationData into weather.dart
-12.1 move imports for loaction.dart and networkign.dart into weather.dart
-12.2 move first part of getLoationData to weather.dart (keep Navigator.push()) into new method: getLocationWeather()
+12.1 move imports for location.dart and networking.dart into weather.dart
+12.2 move first part of getLocationData to weather.dart (keep Navigator.push()) into new method: getLocationWeather()
 12.3 move api key over
 12.4 move first part of url call into const openWeatherMapURL and add this var t NetworkHelper call
 12.5 return weatherData from method and change return type to Future<dynamic>
@@ -118,3 +118,11 @@ Trigger new location request by tapping on icon -> need to move getLocationData 
 12.9 updateUI with weatherdata
 12.10 handle if location service doesn't work in updateUI() (before you handle weather data) + empty return
 
+13. L-143: Create & Style a Text Field
+And also add logic to "City" button to push to city_screen
+-- on location_screen:
+13.1 add Navigator.push() to push to city_screen when city icon is clicked (don't forget import)
+-- in city_screen:
+13.2 add text field widget (props: decoration: filled, fillColor, icon, hintText, border)
+13.3 move input decoration into constants file for multiple use
+13.4 use onChanged property to get value

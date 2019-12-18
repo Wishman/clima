@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 import 'package:clima/services/weather.dart'; // 11.1
+import 'city_screen.dart'; // 13.1(a)
 
 class LocationScreen extends StatefulWidget {
   // 10.1 prop to receive data from loading_screen & constr
@@ -84,7 +85,12 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    // 13.1(b) add Navigator.push() to push to city_screen
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return CityScreen();
+                      }));
+                    },
                     child: Icon(
                       Icons.location_city,
                       size: 50.0,
